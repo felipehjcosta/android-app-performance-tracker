@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.felipehjcosta.appstats">
+    package="com.github.felipehjcosta.perf">
 
-    /
+    <application>
+        <uses-library android:name="android.test.runner"
+            android:required="false" />
+    </application>
 </manifest>
