@@ -1,4 +1,4 @@
-package com.github.felipehjcosta.appstats.sample
+package com.github.felipehjcosta.perf.sample
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
