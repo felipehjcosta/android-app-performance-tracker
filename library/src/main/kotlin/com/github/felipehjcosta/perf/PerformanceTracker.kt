@@ -34,3 +34,14 @@ object PerformanceTracker {
     }
 
 }
+
+fun PerformanceTracker.logTracker(debuggable: Boolean) {
+    if (debuggable) {
+        this.registerOnUpdateMemoryMetrics {
+            android.util.Log.i(
+                    "PerformanceTracker",
+                    "Total memory of the current process in ${it.totalMemoryOfCurrentAppProcessInMB} MB"
+            )
+        }
+    }
+}
