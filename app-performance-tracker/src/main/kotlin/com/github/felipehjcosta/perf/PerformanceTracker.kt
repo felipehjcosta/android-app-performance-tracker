@@ -11,9 +11,10 @@ object PerformanceTracker {
 
     private lateinit var memoryTracker: MetricTracker<MemoryMetric>
 
-    fun initialize() {
+    fun initialize(): PerformanceTracker {
         memoryTracker = MemoryTracker(BackgroundHandlerRunner())
         prepareToTrack()
+        return this
     }
 
     internal fun initialize(memoryTracker: MetricTracker<MemoryMetric>) {
@@ -32,16 +33,21 @@ object PerformanceTracker {
     fun registerOnUpdateMemoryMetrics(listener: (MemoryMetric) -> Unit) {
         observers.add(listener)
     }
-
 }
 
-fun PerformanceTracker.logTracker(debuggable: Boolean = false) {
-    if (debuggable) {
-        this.registerOnUpdateMemoryMetrics {
-            android.util.Log.i(
-                    "PerformanceTracker",
-                    "Total memory of the current process in ${it.totalMemoryOfCurrentAppProcessInMB} MB"
-            )
+infix fun PerformanceTracker.with(block: PerformanceTracker.() -> Unit) {
+    this.block()
+}
+
+fun logging(debuggable: Boolean = false): PerformanceTracker.() -> Unit {
+    return {
+        if (debuggable) {
+            this.registerOnUpdateMemoryMetrics {
+                android.util.Log.i(
+                        "PerformanceTracker",
+                        "Total memory of the current process in ${it.totalMemoryOfCurrentAppProcessInMB} MB"
+                )
+            }
         }
     }
 }
