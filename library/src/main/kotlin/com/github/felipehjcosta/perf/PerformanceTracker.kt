@@ -11,6 +11,11 @@ object PerformanceTracker {
 
     private lateinit var memoryTracker: MetricTracker<MemoryMetric>
 
+    fun initialize() {
+        memoryTracker = MemoryTracker(BackgroundHandlerRunner())
+        prepareToTrack()
+    }
+
     internal fun initialize(memoryTracker: MetricTracker<MemoryMetric>) {
         this.memoryTracker = memoryTracker
         prepareToTrack()
