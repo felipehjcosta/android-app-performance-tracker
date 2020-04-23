@@ -35,7 +35,7 @@ object PerformanceTracker {
 
 }
 
-fun PerformanceTracker.logTracker(debuggable: Boolean) {
+fun PerformanceTracker.logTracker(debuggable: Boolean = false) {
     if (debuggable) {
         this.registerOnUpdateMemoryMetrics {
             android.util.Log.i(
