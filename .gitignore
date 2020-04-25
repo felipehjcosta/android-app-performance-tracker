@@ -86,3 +86,6 @@ lint/tmp/
 
 # IDEA
 .idea
+
+# Github configuration file (sdk path, etc)
+github.properties

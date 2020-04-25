@@ -1,3 +1,4 @@
+apply plugin: 'maven-publish'
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
@@ -72,4 +73,45 @@ dependencies {
     testImplementation 'androidx.test.ext:truth:' + rootProject.extTruthVersion
     testImplementation 'com.willowtreeapps.assertk:assertk-jvm:0.22'
 
+}
+
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
+def getVersionName = { ->
+    return "0.1.0" // Replace with version Name
+}
+
+def getArtificatId = { ->
+    return "app-performance-tracker" // Replace with library name ID
+}
+
+publishing {
+    publications {
+        bar(MavenPublication) {
+            groupId 'com.github.felipehjcosta' // Replace with group ID
+            artifactId getArtificatId()
+            version getVersionName()
+            artifact("$buildDir/outputs/aar/${getArtificatId()}-release.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            /** Configure path of your package repository on Github
+             ** Replace GITHUB_USERID with your/organisation Github userID
+             ** and REPOSITORY with the repository name on GitHub
+             */
+            url = uri("https://maven.pkg.github.com/felipehjcosta/android-app-performance-tracker")
+            credentials {
+                /** Create github.properties in root project folder file with
+                 ** gpr.usr=GITHUB_USER_ID & gpr.key=PERSONAL_ACCESS_TOKEN
+                 ** Set env variable GPR_USER & GPR_API_KEY if not adding a properties file**/
+
+                username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+            }
+        }
+    }
 }
