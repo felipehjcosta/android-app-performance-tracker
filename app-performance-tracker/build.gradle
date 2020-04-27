@@ -1,12 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.novoda.bintray-release'
+apply plugin: "com.palantir.git-version"
 
 publish {
     userOrg = 'fcostaa'
     groupId = 'com.github.felipehjcosta'
     artifactId = 'app-performance-tracker'
-    publishVersion = "${versionDetails().lastTag.replace("v", "")}"
+    publishVersion = "${versionDetails().lastTag}"
     desc = 'AppPerformanceTracker'
     website = 'https://github.com/felipehjcosta/android-app-performance-tracker'
 }
