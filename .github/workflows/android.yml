@@ -35,4 +35,4 @@ jobs:
         with:
           java-version: 1.8
       - name: Publish
-        run: echo "Publish"
+        run: ./gradlew app-performance-tracker:bintrayUpload -PbintrayUser="${{ secrets.BINTRAY_USER }}" -PbintrayKey="${{ secrets.BINTRAY_KEY }}" -PdryRun=false
