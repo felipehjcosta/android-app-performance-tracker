@@ -1,7 +1,7 @@
 package com.github.felipehjcosta.perf
 
-import com.github.felipehjcosta.perf.metrics.MemoryMetric
-import com.github.felipehjcosta.perf.metrics.MemoryTracker
+import com.github.felipehjcosta.perf.metrics.memory.MemoryMetric
+import com.github.felipehjcosta.perf.metrics.memory.MemoryTracker
 import com.github.felipehjcosta.perf.metrics.MetricTracker
 import com.github.felipehjcosta.perf.runner.BackgroundHandlerRunner
 

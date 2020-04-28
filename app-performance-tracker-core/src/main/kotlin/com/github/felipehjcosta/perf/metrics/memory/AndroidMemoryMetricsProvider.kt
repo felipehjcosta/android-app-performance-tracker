@@ -1,4 +1,4 @@
-package com.github.felipehjcosta.perf.metrics
+package com.github.felipehjcosta.perf.metrics.memory
 
 import android.os.Debug
 

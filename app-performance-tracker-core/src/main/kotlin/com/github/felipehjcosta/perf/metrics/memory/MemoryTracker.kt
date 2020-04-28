@@ -1,5 +1,6 @@
-package com.github.felipehjcosta.perf.metrics
+package com.github.felipehjcosta.perf.metrics.memory
 
+import com.github.felipehjcosta.perf.metrics.MetricTracker
 import com.github.felipehjcosta.perf.runner.BackgroundRunner
 
 class MemoryTracker(private val backgroundRunner: BackgroundRunner) : MetricTracker<MemoryMetric> {
