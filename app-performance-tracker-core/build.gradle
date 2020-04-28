@@ -6,7 +6,7 @@ apply plugin: "com.palantir.git-version"
 publish {
     userOrg = 'fcostaa'
     groupId = 'com.github.felipehjcosta'
-    artifactId = 'app-performance-tracker'
+    artifactId = 'app-performance-tracker-core'
     publishVersion = "${versionDetails().lastTag}"
     desc = 'AppPerformanceTracker'
     website = 'https://github.com/felipehjcosta/android-app-performance-tracker'
