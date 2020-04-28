@@ -1,1 +1,2 @@
+include ':app-performance-tracker-firebase'
 include ':app-performance-tracker', ':sample'
