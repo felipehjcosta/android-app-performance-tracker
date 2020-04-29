@@ -38,16 +38,3 @@ object PerformanceTracker {
 infix fun PerformanceTracker.with(block: PerformanceTracker.() -> Unit) {
     this.block()
 }
-
-fun logging(debuggable: Boolean = false): PerformanceTracker.() -> Unit {
-    return {
-        if (debuggable) {
-            this.registerOnUpdateMemoryMetrics {
-                android.util.Log.i(
-                        "PerformanceTracker",
-                        "Total memory of the current process in ${it.totalMemoryOfCurrentAppProcessInMB} MB"
-                )
-            }
-        }
-    }
-}
