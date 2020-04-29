@@ -36,3 +36,5 @@ jobs:
           java-version: 1.8
       - name: Publish Core Library
         run: ./gradlew app-performance-tracker-core:bintrayUpload -PbintrayUser="${{ secrets.BINTRAY_USER }}" -PbintrayKey="${{ secrets.BINTRAY_KEY }}" -PdryRun=false
+      - name: Publish Firebase Library
+        run: ./gradlew app-performance-tracker-firebase:bintrayUpload -PbintrayUser="${{ secrets.BINTRAY_USER }}" -PbintrayKey="${{ secrets.BINTRAY_KEY }}" -PdryRun=false
