@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.novoda.bintray-release'
 apply plugin: "com.palantir.git-version"
-apply plugin: 'com.google.gms.google-services'
 
 publish {
     userOrg = 'fcostaa'
