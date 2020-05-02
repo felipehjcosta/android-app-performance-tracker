@@ -89,3 +89,5 @@ lint/tmp/
 
 # Github configuration file (sdk path, etc)
 github.properties
+
+sample/google-services.json
