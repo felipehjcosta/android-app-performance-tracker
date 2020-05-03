@@ -5,7 +5,7 @@ import com.github.felipehjcosta.perf.PerformanceTracker
 import com.google.firebase.analytics.FirebaseAnalytics
 
 
-fun firebaseLogging(firebaseAnalytics: FirebaseAnalytics): PerformanceTracker.() -> Unit {
+fun firebaseDelivery(firebaseAnalytics: FirebaseAnalytics): PerformanceTracker.() -> Unit {
     return {
         this.registerOnUpdateMemoryMetrics {
             val bundle = Bundle().apply {
